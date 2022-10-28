@@ -3,23 +3,15 @@ fn main() {
         eprintln!("Problem passing arguments!: {err}");
         std::process::exit(1);
     });
-    dbg!(&config);
-    dbg!(&config.query);
-    dbg!(&config.file_path);
     let content = std::fs::read_to_string(&config.file_path).unwrap_or_else(|err| {
         eprintln!("Error opening file! {}", err);
         std::process::exit(1);
     });
-    print!("{content}")
-    /*
-    fn search(config: &Config) -> String{
-        let content = std::fs::read_to_string(&config.file_path).unwrap_or_else(|err| {
-            eprintln!("Error opening file! {}", err);
-            std::process::exit(1);
-        });
-
-        String::from("")
-        */
+    for line in content.lines(){
+        if line.contains(&config.query){
+            println!("{}", &line);
+        }
+    }
 }
 #[derive(Debug)]
 struct Config {
