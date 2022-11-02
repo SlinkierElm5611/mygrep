@@ -26,14 +26,12 @@ impl Config {
             std::io::stdin()
                 .read_line(&mut input)
                 .expect("Failed to read from pipe");
-            println!("{}", &input);
 
             if input == "" {
                 break;
             } else {
                 data.push_str(&(input.clone()));
             }
-            println!("{}", &data);
         }
 
         loop {
