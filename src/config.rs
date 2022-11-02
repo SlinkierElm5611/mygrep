@@ -1,5 +1,3 @@
-use atty;
-
 #[derive(Debug)]
 pub struct Config {
     pub data: String,
